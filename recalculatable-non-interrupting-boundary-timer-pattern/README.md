@@ -1,0 +1,1 @@
+![pattern](recalculatable-non-interupting-boundary-timer.png)
