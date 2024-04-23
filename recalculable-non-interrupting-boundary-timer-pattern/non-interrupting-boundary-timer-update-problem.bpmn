@@ -19,61 +19,87 @@
       <bpmn:incoming>Flow_0qc5e3m</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0qc5e3m" sourceRef="Activity_099gpsn" targetRef="Event_1gtv82p" />
-    <bpmn:boundaryEvent id="Event_0y6whkx" name="Due date reached" attachedToRef="Activity_099gpsn">
+    <bpmn:sequenceFlow id="Flow_026345s" sourceRef="Event_0y6whkx" targetRef="Activity_05fadlh" />
+    <bpmn:boundaryEvent id="Event_0y6whkx" name="Timer triggered" cancelActivity="false" attachedToRef="Activity_099gpsn">
       <bpmn:outgoing>Flow_026345s</bpmn:outgoing>
-      <bpmn:timerEventDefinition id="TimerEventDefinition_0dp2cxe">
-        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">=dueDate</bpmn:timeDate>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1k40v6h">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R/P1D</bpmn:timeCycle>
       </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="Flow_026345s" sourceRef="Event_0y6whkx" targetRef="Event_0inmr4m" />
-    <bpmn:endEvent id="Event_0inmr4m" name="Task expired">
-      <bpmn:incoming>Flow_026345s</bpmn:incoming>
-      <bpmn:errorEventDefinition id="ErrorEventDefinition_19tgar8" errorRef="Error_1utjcvh" />
+    <bpmn:endEvent id="Event_0inmr4m" name="Reminder sent">
+      <bpmn:incoming>Flow_01vhrx8</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01vhrx8" sourceRef="Activity_05fadlh" targetRef="Event_0inmr4m" />
+    <bpmn:serviceTask id="Activity_05fadlh" name="Send reminder">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="sendReminder" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_026345s</bpmn:incoming>
+      <bpmn:outgoing>Flow_01vhrx8</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:textAnnotation id="TextAnnotation_1b6lit3">
+      <bpmn:text>Can specify a cycle but cannot change it, e.g. exponential backoff</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0fplzjg" associationDirection="None" sourceRef="Event_0y6whkx" targetRef="TextAnnotation_1b6lit3" />
   </bpmn:process>
   <bpmn:error id="Error_1utjcvh" name="Error_2tdv811" errorCode="abc" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_02nj1t8">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="192" y="72" width="36" height="36" />
+        <dc:Bounds x="182" y="62" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="177" y="115" width="67" height="14" />
+          <dc:Bounds x="167" y="105" width="67" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0kpoy62_di" bpmnElement="Activity_099gpsn">
-        <dc:Bounds x="270" y="50" width="100" height="80" />
+        <dc:Bounds x="272" y="40" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1gtv82p_di" bpmnElement="Event_1gtv82p">
-        <dc:Bounds x="422" y="72" width="36" height="36" />
+        <dc:Bounds x="412" y="62" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="404" y="115" width="76" height="14" />
+          <dc:Bounds x="394" y="105" width="76" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1enkinz_di" bpmnElement="Event_0inmr4m">
-        <dc:Bounds x="332" y="182" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_1drqav1_di" bpmnElement="Event_0inmr4m">
+        <dc:Bounds x="482" y="182" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="321" y="225" width="61" height="14" />
+          <dc:Bounds x="466" y="225" width="73" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1sef1jr_di" bpmnElement="Event_0y6whkx">
-        <dc:Bounds x="272" y="112" width="36" height="36" />
+      <bpmndi:BPMNShape id="Activity_0pzuk3e_di" bpmnElement="Activity_05fadlh">
+        <dc:Bounds x="340" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1b6lit3_di" bpmnElement="TextAnnotation_1b6lit3">
+        <dc:Bounds x="120" y="158" width="140" height="52" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08hb08f_di" bpmnElement="Event_0y6whkx">
+        <dc:Bounds x="282" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="306" y="143" width="88" height="14" />
+          <dc:Bounds x="313" y="133" width="74" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_07b6yb0_di" bpmnElement="Flow_07b6yb0">
-        <di:waypoint x="228" y="90" />
-        <di:waypoint x="270" y="90" />
+        <di:waypoint x="218" y="80" />
+        <di:waypoint x="272" y="80" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0qc5e3m_di" bpmnElement="Flow_0qc5e3m">
-        <di:waypoint x="370" y="90" />
-        <di:waypoint x="422" y="90" />
+        <di:waypoint x="372" y="80" />
+        <di:waypoint x="412" y="80" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_026345s_di" bpmnElement="Flow_026345s">
-        <di:waypoint x="290" y="148" />
-        <di:waypoint x="290" y="200" />
-        <di:waypoint x="332" y="200" />
+        <di:waypoint x="300" y="138" />
+        <di:waypoint x="300" y="200" />
+        <di:waypoint x="340" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01vhrx8_di" bpmnElement="Flow_01vhrx8">
+        <di:waypoint x="440" y="200" />
+        <di:waypoint x="482" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0fplzjg_di" bpmnElement="Association_0fplzjg">
+        <di:waypoint x="285" y="130" />
+        <di:waypoint x="241" y="158" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
