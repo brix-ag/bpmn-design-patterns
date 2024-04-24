@@ -1,14 +1,12 @@
 # Problem
 
-It is not possible to update the cycle time of the non-interrupting timer boundary event once it has been initialized.
-
 ![problem](non-interrupting-boundary-timer-update-problem.png)
 
 # Solution: Recalculable Non-Interrupting Boundary Timer Pattern
 
 Use an intermediate timer event with a dynamic value for its timer value. After being triggered, in parallel, throw an escalation and reinitialize the timer with a new timer value via a loop.
 
-![solution](recalculable-non-interrupting-boundary-timer-readme.png)
+![solution](recalculable-non-interrupting-boundary-timer-education.png)
 
 # Reusable Pattern
 

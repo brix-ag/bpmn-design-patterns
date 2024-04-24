@@ -2,8 +2,6 @@
 
 # Problem
 
-It is not possible to update the **releaseDate** of the intermediate timer event once is has been initialized.
-
 ![problem](timer-update-problem.png)
 
 # Solution: Updatable Timer Pattern

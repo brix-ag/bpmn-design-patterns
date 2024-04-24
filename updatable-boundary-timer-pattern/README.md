@@ -2,15 +2,13 @@
 
 # Problem
 
-It is not possible to update the **dueDate** of the timer boundary event once the user task has been started.
-
 ![problem](boundary-timer-update-problem.png)
 
 # Solution: Updatable Boundary Timer Pattern
 
 Stop and reinitialize the intermediate timer event. Use escalation events to convey the information that the **dueDate** has been reached.
 
-![solution](updatable-boundary-timer-pattern-readme.png)
+![solution](updatable-boundary-timer-pattern-education.png)
 
 # Reusable Pattern
 
