@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="dfa4d1c" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0" camunda:diagramRelationId="2b6e12f3-ded8-4c2b-b00c-73d117588afc">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0" camunda:diagramRelationId="2b6e12f3-ded8-4c2b-b00c-73d117588afc">
   <bpmn:process id="Process_13ujzl8" name="01 Ausgangslage" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Asset release approved">
+      <bpmn:extensionElements>
+        <zeebe:properties>
+          <zeebe:property name="camundaModeler:exampleOutputJson" value="{&#10;  &#34;releaseDate&#34;: &#34;2024-04-23T08:00:00Z&#34;&#10;}" />
+        </zeebe:properties>
+      </bpmn:extensionElements>
       <bpmn:outgoing>Flow_0we8fyn</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0we8fyn" sourceRef="StartEvent_1" targetRef="Event_1418leb" />
@@ -19,7 +24,7 @@
     </bpmn:intermediateCatchEvent>
     <bpmn:serviceTask id="Activity_146mclp" name="Release asset">
       <bpmn:extensionElements>
-        <zeebe:taskDefinition type="=foo" />
+        <zeebe:taskDefinition type="releaseAsset" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0uzz95g</bpmn:incoming>
       <bpmn:outgoing>Flow_1cf9zmk</bpmn:outgoing>
@@ -32,45 +37,45 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_13ujzl8">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="150" y="210" width="36" height="36" />
+        <dc:Bounds x="172" y="242" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="134" y="253" width="69" height="27" />
+          <dc:Bounds x="158" y="285" width="66" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_117esde_di" bpmnElement="Event_117esde">
-        <dc:Bounds x="502" y="210" width="36" height="36" />
+        <dc:Bounds x="472" y="242" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="483" y="253" width="75" height="14" />
+          <dc:Bounds x="455" y="285" width="72" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0ey3w8i_di" bpmnElement="Event_1418leb">
-        <dc:Bounds x="242" y="210" width="36" height="36" />
+        <dc:Bounds x="254" y="242" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="228" y="253" width="64" height="27" />
+          <dc:Bounds x="240" y="285" width="65" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0mp1m1w_di" bpmnElement="Activity_146mclp">
-        <dc:Bounds x="340" y="188" width="100" height="80" />
+        <dc:Bounds x="330" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_06n8pbg_di" bpmnElement="TextAnnotation_06n8pbg">
-        <dc:Bounds x="280" y="80" width="240" height="84" />
+        <dc:Bounds x="292" y="112" width="240" height="84" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0we8fyn_di" bpmnElement="Flow_0we8fyn">
-        <di:waypoint x="186" y="228" />
-        <di:waypoint x="242" y="228" />
+        <di:waypoint x="208" y="260" />
+        <di:waypoint x="254" y="260" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0uzz95g_di" bpmnElement="Flow_0uzz95g">
-        <di:waypoint x="278" y="228" />
-        <di:waypoint x="340" y="228" />
+        <di:waypoint x="290" y="260" />
+        <di:waypoint x="330" y="260" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1cf9zmk_di" bpmnElement="Flow_1cf9zmk">
-        <di:waypoint x="440" y="228" />
-        <di:waypoint x="502" y="228" />
+        <di:waypoint x="430" y="260" />
+        <di:waypoint x="472" y="260" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0ohqo72_di" bpmnElement="Association_0ohqo72">
-        <di:waypoint x="270" y="213" />
-        <di:waypoint x="305" y="164" />
+        <di:waypoint x="282" y="245" />
+        <di:waypoint x="317" y="196" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
