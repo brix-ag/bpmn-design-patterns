@@ -1,3 +1,5 @@
+Maintained by &nbsp; [<img src="brix_Logo-rgb.svg" align="center" style="width: 100px">](https://www.brix.ch/)
+
 ## List of Design Patterns
 
 ### Timer-Related
