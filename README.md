@@ -4,6 +4,8 @@ Maintained by &nbsp; [<img src="brix_Logo-rgb.svg" align="center" style="width: 
 
 Contributors: &nbsp; [<img src="Camunda_Black.svg" align="center" style="width: 100px">](https://camunda.com/)
 
+&nbsp;
+
 ## List of Design Patterns
 
 ### Timer-Related
