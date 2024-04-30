@@ -1,5 +1,9 @@
 Maintained by &nbsp; [<img src="brix_Logo-rgb.svg" align="center" style="width: 100px">](https://www.brix.ch/)
 
+&nbsp;
+
+Contributors: &nbsp; [<img src="Camunda_Black.svg" align="center" style="width: 100px">](https://camunda.com/)
+
 ## List of Design Patterns
 
 ### Timer-Related
