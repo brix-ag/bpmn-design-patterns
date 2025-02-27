@@ -15,3 +15,7 @@ Contributors: &nbsp; [<img src="Camunda_Black.svg" align="center" style="width: 
 [<img src="updatable-boundary-timer-pattern/updatable-boundary-timer-pattern-logo.png" align="center" style="width: 50px;"> Updatable Boundary Timer Pattern](updatable-boundary-timer-pattern)
 
 [<img src="recalculable-non-interrupting-boundary-timer-pattern/recalculable-non-interrupting-boundary-timer-pattern-logo.png" align="center" style="width: 50px;"> Recalculable Non-Interrupting Boundary Timer Pattern](recalculable-non-interrupting-boundary-timer-pattern)
+
+## BPMN Symbol Substitution
+
+[Event-based Gateway](event-based-gateway-substitution)
